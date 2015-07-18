@@ -1,7 +1,7 @@
 javascript:
     void(s=prompt('Find text:',''));
 
-    s='(' s ')';x=new RegExp(s,'gi');
+    s='('+s+')';x=new RegExp(s,'gi');
     rn=Math.floor(Math.random()*100);
     rid='z'+rn;
     b = document.body.innerHTML;
@@ -11,5 +11,7 @@ javascript:
         font-weight:bold;\'>$1</span>');
 
     void(document.body.innerHTML=b);
-    alert('Found '+document.getElementsByName(rid).length' matches.');
-    window.scrollTo(0,document.getElementsByName(rid)[0].offsetTop);
+    alert(
+        'Found '+document.getElementsByName(rid).length' matches.');
+        window.scrollTo(0,document.getElementsByName(rid)[0].offsetTop
+    );
