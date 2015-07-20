@@ -9,22 +9,30 @@
       <h1>
         テストページです
       </h1>
-      <a href="javascript:
+      <a href="
+javascript:
 void(s=prompt(&#39;Find text:&#39;,&#39;&#39;));
-//var A = s.split(&#39;,&#39;);
-
-s=&#39;(&#39;+s+&#39;)&#39;;x=new RegExp(s,&#39;gi&#39;);
-rn=Math.floor(Math.random()*100);
-rid=&#39;z&#39;+rn;
+var A = s.split(&#39;,&#39;);
+var R = new Array();
+B= A.map(function(d,i){
+rn=Math.floor(Math.random()*1000);
+R.push({ no: &#39;z&#39;+rn, name: d});
+d= &#39;(&#39;+d+&#39;)&#39;;
+d= new RegExp(d,&#39;gi&#39;);
+return d;
+});
 b = document.body.innerHTML;
-b=b.replace(x,&#39;&lt;span name=&#39;+rid+&#39; id=&#39;+rid+&#39; style=\&#39;color:#000;background-color:yellow;font-weight:bold;\&#39;&gt;$1&lt;/span&gt;&#39;);
-console.log(x);
+B.forEach(function(d,i){
+b=b.replace(d,&#39;&lt;span name=&#39;+R[i].no+&#39; class=&#39;+R[i].no+&#39; style=\&#39;color:#000;background-color:yellow;font-weight:bold;\&#39;&gt;$1&lt;/span&gt;&#39;);
+});
 
 void(document.body.innerHTML=b);
-alert(&#39;Found &#39;+document.getElementsByName(rid).length+&#39; matches.&#39;);
+R.forEach(function(d,i){
+n = document.getElementsByName(d.no);
+alert(&#39;Found &#39;+d.name+&#39;,&#39;+n.length+&#39; matches.&#39;);
+});
 
-window.scrollTo(0,document.getElementsByName(rid)[0].offsetTop
-);
+window.scrollTo(0,document.getElementsByName(R[0][&#39;no&#39;]).offsetTop);
 ">link</a>
       <p>
         テキストテキストテキスト

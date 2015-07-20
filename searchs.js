@@ -9,16 +9,15 @@ javascript:
         d= new RegExp(d,'gi');
         return d;
     });
-    console.log(R);
     b = document.body.innerHTML;
     B.forEach(function(d,i){
-        b=b.replace(d,'<span name='+R.no+' class='+R.no+' style=\'color:#000;background-color:yellow;font-weight:bold;\'>$1</span>');
+        b=b.replace(d,'<span name='+R[i].no+' class='+R[i].no+' style=\'color:#000;background-color:yellow;font-weight:bold;\'>$1</span>');
     });
 
     void(document.body.innerHTML=b);
     R.forEach(function(d,i){
-        alert('Found '+d.name.innerHTML+','+n.length+' matches.');
+        n = document.getElementsByName(d.no);
+        alert('Found '+d.name+','+n.length+' matches.');
     });
-    console.log(R);
 
-    window.scrollTo(0,document.getElementsByName(R)[0].offsetTop);
+    window.scrollTo(0,document.getElementsByName(R[0]['no']).offsetTop);

@@ -7,22 +7,30 @@ html
   body.sample
     #contents
         h1 テストページです
-        a href="javascript:
-            void(s=prompt('Find text:',''));
-            //var A = s.split(',');
+        a href="
+javascript:
+    void(s=prompt('Find text:',''));
+    var A = s.split(',');
+    var R = new Array();
+    B= A.map(function(d,i){
+        rn=Math.floor(Math.random()*1000);
+        R.push({ no: 'z'+rn, name: d});
+        d= '('+d+')';
+        d= new RegExp(d,'gi');
+        return d;
+    });
+    b = document.body.innerHTML;
+    B.forEach(function(d,i){
+        b=b.replace(d,'<span name='+R[i].no+' class='+R[i].no+' style=\'color:#000;background-color:yellow;font-weight:bold;\'>$1</span>');
+    });
 
-            s='('+s+')';x=new RegExp(s,'gi');
-            rn=Math.floor(Math.random()*100);
-            rid='z'+rn;
-            b = document.body.innerHTML;
-            b=b.replace(x,'<span name='+rid+' id='+rid+' style=\'color:#000;background-color:yellow;font-weight:bold;\'>$1</span>');
-            console.log(x);
+    void(document.body.innerHTML=b);
+    R.forEach(function(d,i){
+        n = document.getElementsByName(d.no);
+        alert('Found '+d.name+','+n.length+' matches.');
+    });
 
-            void(document.body.innerHTML=b);
-            alert('Found '+document.getElementsByName(rid).length+' matches.');
-
-            window.scrollTo(0,document.getElementsByName(rid)[0].offsetTop
-            );
+    window.scrollTo(0,document.getElementsByName(R[0]['no']).offsetTop);
 "
             | link
         p テキストテキストテキスト
