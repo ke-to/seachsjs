@@ -9,6 +9,6 @@ javascript:
 
     void(document.body.innerHTML=b);
     alert(
-        'Found '+document.getElementsByName(rid).length' matches.');
+        'Found '+document.getElementsByName(rid).length+' matches.');
         window.scrollTo(0,document.getElementsByName(rid)[0].offsetTop
     );
