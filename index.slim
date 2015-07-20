@@ -3,14 +3,31 @@ html
   head
     meta charset="utf-8"
     title 複数検索
-    script src="searchs.js" type="text/javascript"
+    /script src="searchs.js" type="text/javascript"
   body.sample
     #contents
-      h1 テストページです
+        h1 テストページです
+        a href="
+javascript:
+            void(s=prompt('Find text:',''));
+            console.log(s);
 
-      p テキストテキストテキスト
+            s='('+s+')';x=new RegExp(s,'gi');
+            rn=Math.floor(Math.random()*100);
+            rid='z'+rn;
+            b = document.body.innerHTML;
+            b=b.replace(x,'<span name='+rid+' id='+rid+' style=\'color:#000;background-color:yellow;font-weight:bold;\'>$1</span>');
 
-      p
+            void(document.body.innerHTML=b);
+            alert(
+                'Found '+document.getElementsByName(rid).length+' matches.');
+                window.scrollTo(0,document.getElementsByName(rid)[0].offsetTop
+            );
+"
+            | link
+        p テキストテキストテキスト
+
+        p
         | テキストテキストテキスト
           私は当時単にその勉強隊というものの上が云っませない。ついに直接が作文顔はまあある帰着ななかっばかりで行っがおきたをは活動したたが、ちょっとには応じないたんん。がたが掘りまし訳はとにかく今日が大分たたます。ほとんど槙さんの推測上面はっきり堕落をいいた概念そんな吾誰か尊敬よりというご講演たたなざるから、その今日は私かなおのこと新聞で申さで、木下さんのものが讃の私がけっしてお諷刺と講じので私肩よりご落第をなっようについお落第にできでなければ、もしもち思索があっないけれどもいるん事に畳んたです。しかもまたはお他が云っ方はちょっと立派と触れますて、同じ中学には云わませてという文学の使うてしまっうた。
 

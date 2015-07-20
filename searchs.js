@@ -1,5 +1,6 @@
 javascript:
     void(s=prompt('Find text:',''));
+    console.log(s);
 
     s='('+s+')';x=new RegExp(s,'gi');
     rn=Math.floor(Math.random()*100);
