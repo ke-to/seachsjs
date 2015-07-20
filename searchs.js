@@ -12,7 +12,6 @@ javascript:
     b = document.body.innerHTML;
     B.forEach(function(d,i){
         b=b.replace(d,'<span name='+rid+' class='+rid+' style=\'color:#000;background-color:yellow;font-weight:bold;\'>$1</span>');
-        console.log(d);
     });
 
 
