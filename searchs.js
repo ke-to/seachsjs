@@ -1,21 +1,24 @@
 javascript:
     void(s=prompt('Find text:',''));
     var A = s.split(',');
-    var R = [];
+    var R = new Array();
     B= A.map(function(d,i){
+        rn=Math.floor(Math.random()*1000);
+        R.push({ no: 'z'+rn, name: d});
         d= '('+d+')';
         d= new RegExp(d,'gi');
-        rn=Math.floor(Math.random()*100);
-        R.push(rn);
         return d;
     });
     console.log(R);
     b = document.body.innerHTML;
     B.forEach(function(d,i){
-        b=b.replace(d,'<span name=z'+R[i]+' class=z'+R[i]+' style=\'color:#000;background-color:yellow;font-weight:bold;\'>$1</span>');
+        b=b.replace(d,'<span name='+R.no+' class='+R.no+' style=\'color:#000;background-color:yellow;font-weight:bold;\'>$1</span>');
     });
 
     void(document.body.innerHTML=b);
-    alert('Found '+document.getElementsByName(rid).length+' matches.');
+    R.forEach(function(d,i){
+        alert('Found '+d.name.innerHTML+','+n.length+' matches.');
+    });
+    console.log(R);
 
     window.scrollTo(0,document.getElementsByName(R)[0].offsetTop);
