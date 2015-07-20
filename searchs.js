@@ -1,13 +1,19 @@
 javascript:
     void(s=prompt('Find text:',''));
-    //var A = s.split(',');
+    var A = s.split(',');
 
-    s='('+s+')';x=new RegExp(s,'gi');
+    A.map(funcrion(d,i){
+        d= '('+d+')';
+        return new RegExp(d,'gi');
+    });
     rn=Math.floor(Math.random()*100);
     rid='z'+rn;
     b = document.body.innerHTML;
-    b=b.replace(x,'<span name='+rid+' id='+rid+' style=\'color:#000;background-color:yellow;font-weight:bold;\'>$1</span>');
-    console.log(x);
+    A.forEach(function(d,i){
+        b=b.replace(x,'<span name='+rid+' class='+rid+' style=\'color:#000;background-color:yellow;font-weight:bold;\'>$1</span>');
+        console.log(x);
+    });
+
 
     void(document.body.innerHTML=b);
     alert('Found '+document.getElementsByName(rid).length+' matches.');
