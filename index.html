@@ -30,9 +30,8 @@ void(document.body.innerHTML=b);
 R.forEach(function(d,i){
 n = document.getElementsByName(d.no);
 alert(&#39;Found &#39;+d.name+&#39;,&#39;+n.length+&#39; matches.&#39;);
+window.scrollTo(0,document.getElementsByName(d.no)[0].offsetTop);
 });
-
-window.scrollTo(0,document.getElementsByName(R[0][&#39;no&#39;]).offsetTop);
 ">link</a>
       <p>
         テキストテキストテキスト

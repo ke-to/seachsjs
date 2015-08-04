@@ -17,7 +17,6 @@ javascript:
     void(document.body.innerHTML=b);
     R.forEach(function(d,i){
         n = document.getElementsByName(d.no);
+        window.scrollTo(0,n[0].offsetTop);
         alert('Found '+d.name+','+n.length+' matches.');
     });
-
-    window.scrollTo(0,document.getElementsByName(R[0]['no']).offsetTop);

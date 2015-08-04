@@ -28,9 +28,8 @@ javascript:
     R.forEach(function(d,i){
         n = document.getElementsByName(d.no);
         alert('Found '+d.name+','+n.length+' matches.');
+       window.scrollTo(0,document.getElementsByName(d.no)[0].offsetTop);
     });
-
-    window.scrollTo(0,document.getElementsByName(R[0]['no']).offsetTop);
 "
             | link
         p テキストテキストテキスト
