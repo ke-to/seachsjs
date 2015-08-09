@@ -9,7 +9,7 @@ html
         h1 テストページです
         a href="
 javascript:
-    void(s=prompt('Find text:',''));
+    void(s=prompt('検索する語句を入力してください。\n※カンマ区切りで複数検索可能です。',''));
     var A = s.split(',');
     var R = new Array();
     B= A.map(function(d,i){
@@ -21,16 +21,22 @@ javascript:
     });
     b = document.body.innerHTML;
     B.forEach(function(d,i){
-        b=b.replace(d,'<span name='+R[i].no+' class='+R[i].no+' style=\'color:#000;background-color:yellow;font-weight:bold;\'>$1</span>');
+        if(b.indexOf(d)){
+           b=b.replace(d,'<span name='+R[i].no+'  class='+R[i].no+' style=\'font-size:24px;color:#000;background-color:yellow;font-weight:bold;\'>$1</span>');           
+        }
     });
 
     void(document.body.innerHTML=b);
+    var T = '';
     R.forEach(function(d,i){
         n = document.getElementsByName(d.no);
-        alert('Found '+d.name+','+n.length+' matches.');
-       window.scrollTo(0,document.getElementsByName(d.no)[0].offsetTop);
+        if(n==true){
+           window.scrollTo(0,n[0].offsetTop);
+        }
+        T+= d.name+' : '+n.length+'\n';
     });
-"
+    alert('▼検索結果▼\n'+T);
+    "
             | link
         p テキストテキストテキスト
 

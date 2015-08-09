@@ -11,7 +11,7 @@
       </h1>
       <a href="
 javascript:
-void(s=prompt(&#39;Find text:&#39;,&#39;&#39;));
+void(s=prompt(&#39;検索する語句を入力してください。\n※カンマ区切りで複数検索可能です。&#39;,&#39;&#39;));
 var A = s.split(&#39;,&#39;);
 var R = new Array();
 B= A.map(function(d,i){
@@ -23,15 +23,21 @@ return d;
 });
 b = document.body.innerHTML;
 B.forEach(function(d,i){
-b=b.replace(d,&#39;&lt;span name=&#39;+R[i].no+&#39; class=&#39;+R[i].no+&#39; style=\&#39;color:#000;background-color:yellow;font-weight:bold;\&#39;&gt;$1&lt;/span&gt;&#39;);
+if(b.indexOf(d)){
+b=b.replace(d,&#39;&lt;span name=&#39;+R[i].no+&#39;  class=&#39;+R[i].no+&#39; style=\&#39;font-size:24px;color:#000;background-color:yellow;font-weight:bold;\&#39;&gt;$1&lt;/span&gt;&#39;);
+}
 });
 
 void(document.body.innerHTML=b);
+var T = &#39;&#39;;
 R.forEach(function(d,i){
 n = document.getElementsByName(d.no);
-alert(&#39;Found &#39;+d.name+&#39;,&#39;+n.length+&#39; matches.&#39;);
-window.scrollTo(0,document.getElementsByName(d.no)[0].offsetTop);
+if(n==true){
+window.scrollTo(0,n[0].offsetTop);
+}
+T+= d.name+&#39; : &#39;+n.length+&#39;\n&#39;;
 });
+alert(&#39;▼検索結果▼\n&#39;+T);
 ">link</a>
       <p>
         テキストテキストテキスト
